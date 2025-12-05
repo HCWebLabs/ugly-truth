@@ -536,25 +536,67 @@ em, i {
     margin-top: var(--space-xs);
 }
 
-/* Source/Reference Lists — Much smaller text for citations */
+/* Source/Reference Lists — Much smaller text for citations, 3-column grid */
+.sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-m) var(--space-l);
+    margin-top: var(--space-m);
+}
+
+/* Stack to 2 columns on tablet */
+@media (max-width: 900px) {
+    .sources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Stack to 1 column on mobile */
+@media (max-width: 600px) {
+    .sources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sources-grid h3 {
+    font-size: 0.85rem !important;
+    margin-top: 0;
+    margin-bottom: var(--space-2xs);
+    color: rgba(244, 241, 237, 0.8);
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .post-content ul.source-list,
 .post-content ol.source-list,
 ul.source-list,
 ol.source-list {
-    font-size: 0.75rem !important;
-    color: rgba(244, 241, 237, 0.55);
-    padding-left: var(--space-m);
-    margin-top: var(--space-xs);
+    font-size: 0.7rem !important;
+    color: rgba(244, 241, 237, 0.5);
+    padding-left: var(--space-s);
+    margin: 0;
+    list-style-type: none;
 }
 
 .post-content ul.source-list li,
 .post-content ol.source-list li,
 ul.source-list li,
 ol.source-list li {
-    font-size: 0.75rem !important;
+    font-size: 0.7rem !important;
     margin-top: var(--space-3xs);
-    line-height: 1.4;
-    color: rgba(244, 241, 237, 0.55);
+    line-height: 1.35;
+    color: rgba(244, 241, 237, 0.5);
+    position: relative;
+    padding-left: 0.8em;
+}
+
+.post-content ul.source-list li::before,
+ul.source-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: rgba(244, 241, 237, 0.4);
 }
 
 .post-content ul.source-list li + li,
