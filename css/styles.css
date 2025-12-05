@@ -536,36 +536,55 @@ em, i {
     margin-top: var(--space-xs);
 }
 
-/* Source/Reference Lists — Much smaller text for citations, 3-column grid */
+/* ========================================
+   SOURCES SECTION — Standalone full-width
+======================================== */
+.sources-section {
+    border-top: 1px solid var(--color-border-dark);
+    padding-block: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.sources-header {
+    text-align: center;
+    margin-bottom: var(--space-l);
+}
+
+.sources-header h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: var(--step-2);
+    color: var(--color-text-on-dark);
+    margin-bottom: var(--space-2xs);
+}
+
+.sources-header p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted-dark);
+    margin: 0;
+}
+
+/* Source grid - 3 columns */
 .sources-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-m) var(--space-l);
-    margin-top: var(--space-m);
-    
-    /* Break out of narrow container */
-    width: 100vw;
-    max-width: 60rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    column-count: 3;
+    column-gap: var(--space-l);
+}
+
+.source-category {
+    break-inside: avoid;
+    margin-bottom: var(--space-m);
 }
 
 /* Stack to 2 columns on tablet */
 @media (max-width: 900px) {
     .sources-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 90vw;
+        column-count: 2;
     }
 }
 
 /* Stack to 1 column on mobile */
 @media (max-width: 600px) {
     .sources-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-        left: 0;
-        transform: none;
+        column-count: 1;
     }
 }
 
