@@ -536,6 +536,38 @@ em, i {
     margin-top: var(--space-xs);
 }
 
+/* Source/Reference Lists — Smaller text for citations */
+.source-list,
+.post-content .source-list {
+    font-size: var(--step--2);
+    color: rgba(244, 241, 237, 0.7);
+    padding-left: var(--space-m);
+}
+
+.source-list li {
+    margin-top: var(--space-3xs);
+    line-height: 1.5;
+}
+
+.source-list li + li {
+    margin-top: var(--space-3xs);
+}
+
+.sources-note {
+    font-size: var(--step--1);
+    color: var(--color-text-muted-dark);
+    margin-bottom: var(--space-s);
+}
+
+.post-content .section-divider {
+    margin-block: var(--space-2xl);
+}
+
+/* Source section headers — smaller */
+.post-content h3 + .source-list {
+    margin-top: var(--space-xs);
+}
+
 /* Horizontal rule */
 .post-content hr {
     border: none;
