@@ -175,16 +175,50 @@ em, i {
 
 /* ========================================
    HEADER (Light - Cloud Dancer)
+   Editorial Masthead Style
 ======================================== */
 .site-header {
     background-color: var(--color-bg-light);
     color: var(--color-text-on-light);
-    border-bottom: 1px solid var(--color-border-light);
 }
 
 .header-content {
-    padding-block: var(--space-xl);
+    padding-block: var(--space-2xl) var(--space-xl);
     text-align: center;
+}
+
+/* Decorative top rule */
+.header-rule-top {
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-midnight-ink);
+    margin-bottom: var(--space-l);
+}
+
+/* Volume/Issue info - zine style */
+.header-meta {
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--step--2);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted-light);
+    margin-bottom: var(--space-s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-m);
+}
+
+.header-meta span {
+    display: inline-block;
+}
+
+.header-meta .divider {
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-text-muted-light);
+    border-radius: 50%;
 }
 
 .site-title {
@@ -193,8 +227,9 @@ em, i {
     font-weight: 700;
     color: var(--color-text-on-light);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: var(--space-2xs);
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-xs);
+    line-height: 1.1;
 }
 
 .site-title a {
@@ -206,6 +241,28 @@ em, i {
     opacity: 1;
 }
 
+/* Decorative divider under title */
+.header-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-s);
+    margin-block: var(--space-s);
+}
+
+.header-divider::before,
+.header-divider::after {
+    content: '';
+    height: 1px;
+    width: clamp(2rem, 10vw, 5rem);
+    background-color: var(--color-border-light);
+}
+
+.header-divider-icon {
+    font-size: var(--step--1);
+    color: var(--color-text-muted-light);
+}
+
 .site-tagline {
     font-family: 'Lora', Georgia, serif;
     font-size: var(--step-0);
@@ -213,13 +270,44 @@ em, i {
     color: var(--color-text-muted-light);
     max-width: 28em;
     margin-inline: auto;
+    margin-bottom: var(--space-m);
+}
+
+/* Color of the Year badge */
+.color-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--step--2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted-light);
+    margin-top: var(--space-s);
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid var(--color-border-light);
+}
+
+.color-swatch--light {
+    background-color: var(--color-cloud-dancer);
+}
+
+.color-swatch--dark {
+    background-color: var(--color-midnight-ink);
 }
 
 /* Navigation */
 .site-nav {
     background-color: var(--color-bg-light);
     padding-block: var(--space-s);
-    border-bottom: 1px solid var(--color-border-light);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 3px solid var(--color-midnight-ink);
 }
 
 .nav-list {
@@ -478,24 +566,140 @@ em, i {
 }
 
 /* ========================================
-   ABOUT PAGE
+   ABOUT PAGE — Newspaper Style Layout
 ======================================== */
 .about-content {
     padding-block: var(--space-2xl);
 }
 
+/* Main headline - spans full width */
 .about-content h1 {
-    font-size: var(--step-3);
-    margin-bottom: var(--space-l);
+    font-size: var(--step-4);
+    margin-bottom: var(--space-xs);
     color: var(--color-text-on-dark);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
-.about-content p + p {
-    margin-top: var(--space-m);
+/* Subheadline / byline */
+.about-subtitle {
+    font-family: 'Lora', Georgia, serif;
+    font-size: var(--step-0);
+    font-style: italic;
+    color: var(--color-text-muted-dark);
+    text-align: center;
+    margin-bottom: var(--space-l);
 }
 
-.about-content p {
+/* Decorative rule under headline */
+.about-rule {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-cloud-dancer) 20%,
+        var(--color-cloud-dancer) 80%,
+        transparent
+    );
+    margin-bottom: var(--space-xl);
+}
+
+/* Newspaper columns container */
+.about-columns {
+    column-count: 1;
+    column-gap: var(--space-xl);
+    column-rule: 1px solid var(--color-border-dark);
+}
+
+@media (min-width: 700px) {
+    .about-columns {
+        column-count: 2;
+    }
+}
+
+.about-columns p {
     color: rgba(244, 241, 237, 0.9);
+    margin-bottom: var(--space-m);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+/* Section headers within columns */
+.about-columns h2 {
+    font-size: var(--step-2);
+    color: var(--color-text-on-dark);
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-s);
+    break-after: avoid;
+    column-span: none;
+    border-bottom: 1px solid var(--color-border-dark);
+    padding-bottom: var(--space-xs);
+}
+
+/* Pull quotes - break out of column */
+.pull-quote {
+    break-inside: avoid;
+    background-color: rgba(244, 241, 237, 0.05);
+    border-left: 3px solid var(--color-cloud-dancer);
+    border-right: 3px solid var(--color-cloud-dancer);
+    padding: var(--space-l);
+    margin-block: var(--space-l);
+    text-align: center;
+}
+
+.pull-quote p {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: var(--step-1);
+    font-style: italic;
+    color: var(--color-cloud-dancer);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.pull-quote cite {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--step--2);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted-dark);
+    margin-top: var(--space-s);
+}
+
+/* Signature at end */
+.about-signature {
+    break-inside: avoid;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--color-border-dark);
+    font-style: italic;
+    color: var(--color-text-muted-dark);
+}
+
+.about-signature p {
+    text-align: left;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Full-width sections that span columns */
+.about-full-width {
+    column-span: all;
+    margin-block: var(--space-xl);
+    padding-block: var(--space-l);
+    border-top: 1px solid var(--color-border-dark);
+    border-bottom: 1px solid var(--color-border-dark);
+}
+
+.about-full-width h2 {
+    font-size: var(--step-2);
+    color: var(--color-text-on-dark);
+    margin-bottom: var(--space-m);
+    text-align: center;
 }
 
 /* ========================================
