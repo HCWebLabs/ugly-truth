@@ -542,12 +542,20 @@ em, i {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-m) var(--space-l);
     margin-top: var(--space-m);
+    
+    /* Break out of narrow container */
+    width: 100vw;
+    max-width: 60rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Stack to 2 columns on tablet */
 @media (max-width: 900px) {
     .sources-grid {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 90vw;
     }
 }
 
@@ -555,6 +563,9 @@ em, i {
 @media (max-width: 600px) {
     .sources-grid {
         grid-template-columns: 1fr;
+        width: 100%;
+        left: 0;
+        transform: none;
     }
 }
 
