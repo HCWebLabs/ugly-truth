@@ -536,36 +536,48 @@ em, i {
     margin-top: var(--space-xs);
 }
 
-/* Source/Reference Lists — Smaller text for citations */
-.source-list,
-.post-content .source-list {
-    font-size: var(--step--2);
-    color: rgba(244, 241, 237, 0.7);
+/* Source/Reference Lists — Much smaller text for citations */
+.post-content ul.source-list,
+.post-content ol.source-list,
+ul.source-list,
+ol.source-list {
+    font-size: 0.75rem !important;
+    color: rgba(244, 241, 237, 0.55);
     padding-left: var(--space-m);
+    margin-top: var(--space-xs);
 }
 
-.source-list li {
+.post-content ul.source-list li,
+.post-content ol.source-list li,
+ul.source-list li,
+ol.source-list li {
+    font-size: 0.75rem !important;
     margin-top: var(--space-3xs);
-    line-height: 1.5;
+    line-height: 1.4;
+    color: rgba(244, 241, 237, 0.55);
 }
 
-.source-list li + li {
+.post-content ul.source-list li + li,
+ul.source-list li + li {
     margin-top: var(--space-3xs);
+}
+
+/* Make source section h3s smaller */
+.post-content hr.section-divider ~ h3 {
+    font-size: 0.95rem;
+    margin-top: var(--space-m);
+    margin-bottom: var(--space-2xs);
+    color: rgba(244, 241, 237, 0.7);
 }
 
 .sources-note {
-    font-size: var(--step--1);
+    font-size: 0.85rem;
     color: var(--color-text-muted-dark);
     margin-bottom: var(--space-s);
 }
 
-.post-content .section-divider {
+.post-content hr.section-divider {
     margin-block: var(--space-2xl);
-}
-
-/* Source section headers — smaller */
-.post-content h3 + .source-list {
-    margin-top: var(--space-xs);
 }
 
 /* Horizontal rule */
